@@ -858,7 +858,7 @@ def admin_view():
                 
                 status.update(label=f"✅ Deep Cleanup complete! Purged {removed_count} orphaned items.", state="complete")
         
-        st.caption("© 2026 PixelStream-OS | Enterprise Security v26.1")
+        st.caption("© Raj-photography")
 
 from streamlit_autorefresh import st_autorefresh
 
@@ -1229,6 +1229,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
