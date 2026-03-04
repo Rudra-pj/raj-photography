@@ -8,8 +8,8 @@ import threading
 import time
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
-import tkinter as tk
-from tkinter import filedialog
+#import tkinter as tk
+#from tkinter import filedialog
 import shutil
 import pandas as pd
 
@@ -343,15 +343,19 @@ def admin_view():
                 with col2:
                     st.write("") # Padding
                     st.write("") # Padding
-                    if st.button("📁 Browse Folder"):
-                        root = tk.Tk()
-                        root.withdraw()
-                        root.attributes('-topmost', True)
-                        selected_path = filedialog.askdirectory(master=root)
-                        root.destroy()
-                        if selected_path:
-                            st.session_state.sync_folder = selected_path
-                            st.rerun()
+                    os.makedirs("uploads", exist_ok=True)
+                    
+                    uploaded_files = st.file_uploader(
+                        "Upload Images",
+                        accept_multiple_files=True
+                    )
+                    
+                    if uploaded_files:
+                        for file in uploaded_files:
+                            file_path = os.path.join("uploads", file.name)
+                            with open(file_path, "wb") as f:
+                                f.write(file.getbuffer())
+                        st.success("Files uploaded successfully!")
 
                 if sync_folder:
                     if not os.path.isdir(sync_folder):
@@ -1227,3 +1231,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
