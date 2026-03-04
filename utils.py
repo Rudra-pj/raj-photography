@@ -42,17 +42,26 @@ def generate_thumbnail(source_path, output_path, size=(400, 400)):
         print(f"Thumbnail error for {source_path}: {e}")
         return None
 
+# def get_local_ip():
+#     """Gets the local IP address of the machine to allow network access."""
+#     try:
+#         # Create a dummy socket to find the local IP
+#         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+#         s.connect(("8.8.8.8", 80))
+#         local_ip = s.getsockname()[0]
+#         s.close()
+#         return local_ip
+#     except:
+#         return "localhost"
+import os
+
 def get_local_ip():
-    """Gets the local IP address of the machine to allow network access."""
-    try:
-        # Create a dummy socket to find the local IP
-        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        s.connect(("8.8.8.8", 80))
-        local_ip = s.getsockname()[0]
-        s.close()
-        return local_ip
-    except:
-        return "localhost"
+    if os.getenv("STREAMLIT_SERVER_HEADLESS") == "true":
+        # Running on Streamlit Cloud
+        return "https://raj-photographyy.streamlit.app"
+    else:
+        # Running locally
+        return "http://localhost:8501"
 
 def generate_qr_code(url, save_path):
     """Generates a QR code for the given URL and saves it to the specified path."""
@@ -140,3 +149,4 @@ def apply_watermark_to_video(base_video_path, watermark_path, output_path):
     # Note: This can be slow and might need optimization for production
     final.write_videofile(output_path, codec="libx264", audio_codec="aac")
     return output_path
+
