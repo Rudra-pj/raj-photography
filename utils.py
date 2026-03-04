@@ -56,12 +56,12 @@ def generate_thumbnail(source_path, output_path, size=(400, 400)):
 import os
 
 def get_local_ip():
-    if os.getenv("STREAMLIT_SERVER_HEADLESS"):
+    #if os.getenv("STREAMLIT_SERVER_HEADLESS"):
         # Running on Streamlit Cloud
-        return "https://raj-photographyy.streamlit.app"
-    else:
+    return "https://raj-photographyy.streamlit.app"
+    #else:
         # Running locally
-        return "http://localhost:8501"
+        #return "http://localhost:8501"
 
 def generate_qr_code(url, save_path):
     """Generates a QR code for the given URL and saves it to the specified path."""
@@ -149,5 +149,6 @@ def apply_watermark_to_video(base_video_path, watermark_path, output_path):
     # Note: This can be slow and might need optimization for production
     final.write_videofile(output_path, codec="libx264", audio_codec="aac")
     return output_path
+
 
 
