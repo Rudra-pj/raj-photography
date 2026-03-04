@@ -271,10 +271,10 @@ def admin_view():
                     
                     # Generate QR Code
                     local_ip = utils.get_local_ip()
-                    detected_url = f"http://{local_ip}:8501"
-                    base_url = st.secrets.get("base_url", detected_url)
-                    if "localhost" in base_url or "0.0.0.0" in base_url:
-                        base_url = detected_url
+                    # detected_url = f"http://{local_ip}:8501"
+                    # base_url = st.secrets.get("base_url", detected_url)
+                    # if "localhost" in base_url or "0.0.0.0" in base_url:
+                    base_url = local_ip
                     
                     guest_url = f"{base_url}/?event_id={event_id}"
                     qr_path = os.path.join(QRCODE_DIR, f"{event_id}.png")
@@ -1229,6 +1229,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
