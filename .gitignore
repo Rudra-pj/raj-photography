@@ -1,0 +1,21 @@
+# Streamlit sensitive data
+.streamlit/secrets.toml
+
+# Database
+raj_photography.db
+
+# Media uploads (Client photos should stay local)
+uploads/originals/
+uploads/watermarked/
+uploads/watermarks/
+uploads/qrcodes/
+
+# Python environment and cache
+__pycache__/
+*.pyc
+venv/
+.env
+
+# OS specific files
+.DS_Store
+Thumbs.db
