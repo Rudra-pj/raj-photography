@@ -1,4 +1,4 @@
-# 📸 PixelStream-OS - Professional Event Studio Engine
+# 📸 Raj-photographyy - Professional Event Studio Engine
 
 This platform is an enterprise-grade media delivery solution designed for professional event photographers. It bridges the gap between the camera and the client by providing an automated, real-time pipeline for watermarking, uploading, and distributing event media through secure, high-end guest galleries. Built for speed, security, and a premium user experience.
 
@@ -38,4 +38,4 @@ This platform is an enterprise-grade media delivery solution designed for profes
    ```
 
 ## 📝 License
-Copyright © 2026 PixelStream-OS. All rights reserved.
+Copyright © 2026 Raj-photographyy. All rights reserved.
